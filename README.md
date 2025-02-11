@@ -27,7 +27,7 @@ Start the three microservices using `uvicorn`:
 ```sh
 uvicorn facade_service:app --host 0.0.0.0 --port 8000
 uvicorn logging_service:app --host 0.0.0.0 --port 8001
-uvicorn message_service:app --host 0.0.0.0 --port 8002
+uvicorn messages_service:app --host 0.0.0.0 --port 8002
 ```
 
 ### Testing
