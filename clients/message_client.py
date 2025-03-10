@@ -3,7 +3,7 @@ import httpx
 
 class MessageClient:
     
-    def __init__(self, url="http://localhost:8002/"):
+    def __init__(self, url="http://localhost:8004/"):
         self.MESSAGES_SERVICE_URL = url
     
     
