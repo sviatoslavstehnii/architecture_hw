@@ -1,10 +1,13 @@
 import threading
+import logging
 from fastapi import FastAPI
 from hazelcast import HazelcastClient
 
-app = FastAPI()
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
-storage: list[str] = []
+app = FastAPI()
+storage: list[dict] = []
 
 def consumer_loop():
     client = HazelcastClient(
@@ -15,8 +18,10 @@ def consumer_loop():
         ],
     )
     queue = client.get_queue("messages-queue").blocking()
+
     while True:
-        item = queue.take()   
+        item = queue.take()                # blocks until a message arrives
+        logger.info(f"RECEIVED: {item}")   # now this will actually print
         storage.append(item)
 
 threading.Thread(target=consumer_loop, daemon=True).start()
