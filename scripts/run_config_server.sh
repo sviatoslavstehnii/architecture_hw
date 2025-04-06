@@ -1,1 +1,1 @@
-uvicorn config_server:app --host 0.0.0.0 --port 8005
+uvicorn config_server:app --host 0.0.0.0 --port 8006

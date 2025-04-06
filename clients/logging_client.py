@@ -4,7 +4,7 @@ from tenacity import retry, stop_after_attempt, wait_fixed
 
 
 class LoggingClient:
-    def __init__(self, config_server_url="http://localhost:8005/services/logging-service"):
+    def __init__(self, config_server_url="http://localhost:8006/services/logging-service"):
         self.config_server_url = config_server_url
         self.instances = []
 

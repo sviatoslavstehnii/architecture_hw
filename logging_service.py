@@ -8,7 +8,14 @@ app = FastAPI()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-client = hazelcast.HazelcastClient()
+client = hazelcast.HazelcastClient(
+    cluster_name="logging-cluster",
+        cluster_members=[
+            "127.0.0.1:5701",
+            "127.0.0.1:5702",
+            "127.0.0.1:5703",
+        ],
+)
 message_store = client.get_map("message_store").blocking()
 
 class LogMessage(BaseModel):
