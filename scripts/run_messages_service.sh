@@ -1,4 +1,4 @@
 hz-start --config=hazelcast/hazelcast-messaging.xml --port=5801 &
 hz-start --config=hazelcast/hazelcast-messaging.xml --port=5802 &
-uvicorn messages_service:app --host 0.0.0.0 --port 8004 &
-uvicorn messages_service:app --host 0.0.0.0 --port 8005
+python3 messages_service.py -p 8004 &
+python3 messages_service.py -p 8005
